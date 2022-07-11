@@ -1,4 +1,4 @@
-name: Test
+name: Jest Unit Testing
 
 on:
   push:
@@ -7,19 +7,27 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  jest:
+    runs-on: [ubuntu-latest]
     strategy:
       matrix:
-        node-version: [15.x, 16.x]
-        os: [ubuntu-latest, macOS-latest, windows-latest]
-    runs-on: $
-
+        node-version: [14.x, 15.x, 16.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js $
-        uses: actions/setup-node@v1
+      - name: install deps
+        run: yarn
+      - name: run test
+        run: yarn test
+      - name: if fail
+        uses: actions/github-script@0.2.0
         with:
-          node-version: $
-      # 테스트를 수행하기 위한 명령어를 작성한다.
-      - run: yarn
-      - run: yarn test
+          github-token: ${{github.token}}
+          script: |
+            const ref = "${{github.ref}}"
+            const pull_number = Number(ref.split("/")[2])
+            await github.pulls.createReview({
+              ...context.repo,
+              pull_number,
+              body:"Test failed. Please update your code.",
+              event: "REQUEST_CHANGES"
+            })
