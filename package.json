@@ -6,5 +6,16 @@
   "repository": "https://github.com/5tarlight/yeah-engine",
   "author": "YEAHx4 <developerstarlight@gmail.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "keywords": [
+    "react",
+    "web",
+    "game",
+    "engine",
+    "game-engine",
+    "physics"
+  ],
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
