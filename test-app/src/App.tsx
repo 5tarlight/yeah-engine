@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import { PhysicsCanvas } from "yeah-engine";
 
 function App() {
-  return <h1>Hello World</h1>;
+  const ref = useRef<HTMLCanvasElement>(null);
+
+  return <PhysicsCanvas ref={ref} />;
 }
 
 export default App;

@@ -1,3 +1,5 @@
+import { PhysicsCanvas } from "./src";
+
 describe("Test Index Import", () => {
-  test("Is HelloWorld Works?", () => {});
+  test("Unit Test Works?", () => {});
 });

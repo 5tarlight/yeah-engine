@@ -1,1 +1,1 @@
-export { default as PhysicalCanvas } from "./PhysicsCanvas";
+export { default as PhysicsCanvas } from "./PhysicsCanvas";
