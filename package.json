@@ -23,5 +23,10 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "@types/node": "^18.0.3",
+    "@types/react": "^18.0.15",
+    "react": "^18.2.0"
   }
 }
