@@ -1,1 +1,1 @@
-export const hello = () => console.log("hello world");
+export { default as PhysicalCanvas } from "./PhysicsCanvas";
